@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import classes from './Checkout.module.css'
 
 const Checkout = (props) => {
+    const nameInputRef = useRef();
+    const streetInputRef = useRef();
+    const postalCodeInputRef = useRef();
+    const cityInputRef = useRef();
 
     const confirmHandler = (event) => {
         event.preventDefault()
+
+        const enteredName = nameInputRef.current.value;
+        const enteredStreet = streetInputRef.current.value;
+        const enteredPostalCode = postalCodeInputRef.current.value;
+        const enteredCity = cityInputRef.current.value;
     }
 
     return (
@@ -14,6 +23,7 @@ const Checkout = (props) => {
                 <input
                     id='name'
                     type='text'
+                    ref={nameInputRef}
                 />
             </div>
             <div className={classes.control}>
@@ -21,6 +31,7 @@ const Checkout = (props) => {
                 <input
                     id='street'
                     type='text'
+                    ref={streetInputRef}
                 />
             </div>
             <div className={classes.control}>
@@ -28,6 +39,7 @@ const Checkout = (props) => {
                 <input
                     id='postal'
                     type='text'
+                    ref={postalCodeInputRef}
                 />
             </div>
             <div className={classes.control}>
@@ -35,6 +47,7 @@ const Checkout = (props) => {
                 <input
                     id='city'
                     type='text'
+                    ref={cityInputRef}
                 />
             </div>
             <div className={classes.actions}>
